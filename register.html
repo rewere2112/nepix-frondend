@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Nepix Launcher</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Segoe UI"', 'Open Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        aero: {
+                            blue: '#00aeff',
+                            green: '#7cc700',
+                            orange: '#ff9c00',
+                            yellow: '#ffcc00',
+                            gray: '#c0c0c0',
+                        }
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                    },
+                    backgroundImage: {
+                        'glossy-blue': 'linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%)',
+                        'glossy-green': 'linear-gradient(to bottom, #9be15d 0%, #00e3ae 100%)',
+                        'glossy-orange': 'linear-gradient(to bottom, #ffc837 0%, #ff8008 100%)',
+                        'glossy-gray': 'linear-gradient(to bottom, #64748b 0%, #475569 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="register.css" />
+</head>
+
+<body
+    class="font-sans antialiased h-screen overflow-hidden flex items-center justify-center p-4 frutiger-aero-container">
+    <canvas id="frutigerAeroCanvas"></canvas>
+    <div class="bg-overlay"></div>
+
+    <!-- Nepix Logo in top right corner -->
+    <a href="index.html"
+        class="fixed top-6 right-6 z-20 text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent hover:scale-105 transition-transform">
+        Nepix
+    </a>
+
+    <div class="w-full max-w-md aero-window transform transition-all hover:scale-[1.01] relative z-10">
+        <!-- Window Header -->
+        <div class="aero-header px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-4 h-4 rounded-full bg-glossy-green shadow border border-white/20"></div>
+                <span class="font-semibold text-slate-200 text-sm">Create Account</span>
+            </div>
+            <div class="flex gap-1">
+                <div class="w-3 h-3 rounded-full bg-red-400 border border-red-500 shadow-sm"></div>
+                <div class="w-3 h-3 rounded-full bg-aero-yellow border border-yellow-500 shadow-sm"></div>
+                <div class="w-3 h-3 rounded-full bg-aero-green border border-green-500 shadow-sm"></div>
+            </div>
+        </div>
+
+        <div class="p-8">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-slate-100 drop-shadow-sm">Join Nepix</h2>
+                <p class="text-slate-300 text-sm">Start your adventure today.</p>
+            </div>
+
+            <form action="dashboard.html" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Username</label>
+                    <input type="text" name="username" class="w-full aero-input rounded px-3 py-2"
+                        placeholder="AlexSteve" required />
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Email Address</label>
+                    <input type="email" name="email" class="w-full aero-input rounded px-3 py-2"
+                        placeholder="alex@minecraft.com" required />
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Password</label>
+                    <input type="password" name="password" class="w-full aero-input rounded px-3 py-2"
+                        placeholder="••••••••" required />
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="terms"
+                        class="rounded border-slate-500 text-blue-500 focus:ring-blue-500 bg-slate-700" required />
+                    <label for="terms" class="text-sm text-slate-300">I agree to the <a href="#"
+                            class="text-blue-400 hover:underline">Terms of Service</a></label>
+                </div>
+
+                <button type="submit"
+                    class="w-full btn-glossy bg-glossy-blue text-white font-bold py-2 rounded text-lg transition-all duration-200 mt-2 text-shadow">
+                    Create Account
+                </button>
+            </form>
+
+            <div class="mt-6 text-center text-sm text-slate-300">
+                Already have an account?
+                <a href="login.html" class="text-blue-400 font-bold hover:underline">Log in</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>
