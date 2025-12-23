@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Nepix Launcher</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Segoe UI"', 'Open Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        aero: {
+                            blue: '#00aeff',
+                            green: '#7cc700',
+                            orange: '#ff9c00',
+                            yellow: '#ffcc00',
+                            gray: '#c0c0c0',
+                        }
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                    },
+                    backgroundImage: {
+                        'glossy-blue': 'linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%)',
+                        'glossy-green': 'linear-gradient(to bottom, #9be15d 0%, #00e3ae 100%)',
+                        'glossy-orange': 'linear-gradient(to bottom, #ffc837 0%, #ff8008 100%)',
+                        'glossy-gray': 'linear-gradient(to bottom, #64748b 0%, #475569 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+</head>
+
+<body class="font-sans antialiased h-screen flex overflow-hidden frutiger-aero-container">
+    <canvas id="frutigerAeroCanvas"></canvas>
+    <div class="bg-overlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="w-64 aero-sidebar hidden md:flex flex-col z-10">
+        <div class="p-6">
+            <h1 class="font-bold text-2xl text-slate-100 tracking-tight">NEPIX</h1>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="#"
+                class="nav-item active flex items-center gap-3 px-4 py-3 rounded-lg text-slate-100 font-semibold">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                    <path
+                        d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                    <path
+                        d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                </svg>
+                Dashboard
+            </a>
+            <a href="#"
+                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 font-medium hover:text-slate-100">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd"
+                        d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z"
+                        clip-rule="evenodd" />
+                </svg>
+                Browse Modpacks
+            </a>
+            <a href="#"
+                class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 font-medium hover:text-slate-100">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd"
+                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 01-.988-1.129c1.454-1.272 3.765-1.272 5.219 0a.75.75 0 01-1.129.988zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                        clip-rule="evenodd" />
+                </svg>
+                Settings
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-white/10">
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-black/20 border border-white/10">
+                <div
+                    class="w-10 h-10 rounded-full bg-blue-500 overflow-hidden border border-white/10 shadow-sm flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-6 h-6">
+                        <path fill-rule="evenodd"
+                            d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div>
+                    <div id="sidebar-username" class="font-bold text-sm text-slate-100">User</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col overflow-hidden relative z-10">
+        <!-- Mobile Header -->
+        <header
+            class="md:hidden flex items-center justify-between p-4 border-b border-white/10 bg-slate-900/60 backdrop-blur-md">
+            <span class="font-bold text-xl text-slate-100">NEPIX</span>
+            <button class="text-slate-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-6 md:p-10">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Welcome Header -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                    <div>
+                        <h1 id="welcome-header" class="text-3xl font-bold text-slate-100 drop-shadow-sm">Welcome back!
+                        </h1>
+                        <p class="text-slate-300 mt-1 font-medium">Ready to dive back in?</p>
+                    </div>
+                    <button
+                        class="btn-glossy bg-glossy-green font-bold py-3 px-8 rounded-full shadow-lg text-white flex items-center gap-2 text-shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd"
+                                d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Launch Game
+                    </button>
+                </div>
+
+                <!-- Active Profile -->
+                <div class="aero-panel p-8 mb-8 flex flex-col md:flex-row gap-8 items-center">
+                    <div
+                        class="w-32 h-32 bg-slate-700/50 rounded-xl flex items-center justify-center border border-white/10 shadow-inner">
+                        <img src="https://api.mineatar.io/face/853c80ef-3c37-49fd-aa4f-6bf5c221f29c?scale=16"
+                            alt="Skin Face" class="w-24 h-24 rendering-pixelated drop-shadow-md" />
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
+                            <h2 class="text-2xl font-bold text-slate-100">Fabric 1.20.4</h2>
+                            <span
+                                class="px-2 py-1 bg-green-900/50 text-green-300 border border-green-700 text-xs font-bold rounded uppercase shadow-sm">Optimized</span>
+                        </div>
+                        <p class="text-slate-300 mb-4 font-medium">Sodium, Iris, Lithium, and 42 other mods loaded.</p>
+                        <div class="flex gap-3 justify-center md:justify-start">
+                            <button
+                                class="btn-glossy bg-glossy-gray px-4 py-2 rounded-md text-sm font-bold text-slate-100">Edit
+                                Profile</button>
+                            <button
+                                class="btn-glossy bg-glossy-gray px-4 py-2 rounded-md text-sm font-bold text-slate-100">Open
+                                Folder</button>
+                        </div>
+                    </div>
+                    <div class="text-right hidden md:block">
+                        <div class="text-slate-400 text-sm mb-1 font-semibold">Last Played</div>
+                        <div class="text-slate-100 text-lg font-bold">2 hours ago</div>
+                    </div>
+                </div>
+
+                <!-- Recent Modpacks -->
+                <h3 class="text-xl font-bold mb-6 text-slate-100 drop-shadow-sm">Recommended Modpacks</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Pack 1 -->
+                    <div
+                        class="aero-panel p-0 overflow-hidden group hover:bg-slate-700/50 transition-all cursor-pointer">
+                        <div class="h-32 bg-purple-900/50 relative">
+                            <img src="https://images.unsplash.com/photo-1605631097460-c65116907376?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                class="w-full h-full object-cover opacity-60" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                        </div>
+                        <div class="p-5 relative -mt-10">
+                            <div
+                                class="w-16 h-16 bg-slate-800 rounded-lg shadow-md mb-3 flex items-center justify-center text-2xl border border-slate-600">
+                                🌋</div>
+                            <h4 class="font-bold text-lg mb-1 text-slate-100">Better MC</h4>
+                            <p class="text-slate-300 text-sm mb-4">The ultimate vanilla+ experience.</p>
+                            <button
+                                class="w-full py-2 btn-glossy bg-glossy-blue text-white font-bold rounded-md text-sm text-shadow">Install</button>
+                        </div>
+                    </div>
+
+                    <!-- Pack 2 -->
+                    <div
+                        class="aero-panel p-0 overflow-hidden group hover:bg-slate-700/50 transition-all cursor-pointer">
+                        <div class="h-32 bg-blue-900/50 relative">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                class="w-full h-full object-cover opacity-60" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                        </div>
+                        <div class="p-5 relative -mt-10">
+                            <div
+                                class="w-16 h-16 bg-slate-800 rounded-lg shadow-md mb-3 flex items-center justify-center text-2xl border border-slate-600">
+                                ⚙️</div>
+                            <h4 class="font-bold text-lg mb-1 text-slate-100">Create: Astral</h4>
+                            <p class="text-slate-300 text-sm mb-4">Space exploration with Create mod.</p>
+                            <button
+                                class="w-full py-2 btn-glossy bg-glossy-blue text-white font-bold rounded-md text-sm text-shadow">Install</button>
+                        </div>
+                    </div>
+
+                    <!-- Pack 3 -->
+                    <div
+                        class="aero-panel p-0 overflow-hidden group hover:bg-slate-700/50 transition-all cursor-pointer">
+                        <div class="h-32 bg-orange-900/50 relative">
+                            <img src="https://images.unsplash.com/photo-1614726365723-49cfae967bda?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                class="w-full h-full object-cover opacity-60" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                        </div>
+                        <div class="p-5 relative -mt-10">
+                            <div
+                                class="w-16 h-16 bg-slate-800 rounded-lg shadow-md mb-3 flex items-center justify-center text-2xl border border-slate-600">
+                                🐉</div>
+                            <h4 class="font-bold text-lg mb-1 text-slate-100">RLCraft</h4>
+                            <p class="text-slate-300 text-sm mb-4">Real Life / Realism / Hardcore.</p>
+                            <button
+                                class="w-full py-2 btn-glossy bg-glossy-blue text-white font-bold rounded-md text-sm text-shadow">Install</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

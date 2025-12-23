@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nepix - Launcher de Minecraft Moderno</title>
+    <meta name="description" content="Bienvenido a Nepix, tu lanzador de Minecraft moderno." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Segoe UI"', 'Open Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        aero: {
+                            blue: '#00aeff',
+                            green: '#7cc700',
+                            orange: '#ff9c00',
+                            yellow: '#ffcc00',
+                            gray: '#c0c0c0',
+                        }
+                    },
+                    backgroundImage: {
+                        'glossy-blue': 'linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%)',
+                        'glossy-green': 'linear-gradient(to bottom, #9be15d 0%, #00e3ae 100%)',
+                        'glossy-orange': 'linear-gradient(to bottom, #ffc837 0%, #ff8008 100%)',
+                        'glossy-gray': 'linear-gradient(to bottom, #64748b 0%, #475569 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="text-white font-sans overflow-x-hidden frutiger-aero-container">
+    <div class="bg-overlay"></div>
+    <canvas id="frutigerAeroCanvas"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="relative z-10">
+        <div class="aero-panel mx-4 mt-1 mb-0">
+            <nav class="py-2 px-6">
+                <div class="max-w-7xl mx-auto flex justify-between items-center">
+                    <!-- Logo -->
+                    <a href="index.html"
+                        class="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent hover:scale-105 transition-transform">
+                        Nepix
+                    </a>
+
+                    <!-- Main Menu -->
+                    <ul class="hidden md:flex items-center gap-8">
+                        <li>
+                            <a href="index.html"
+                                class="text-slate-200 hover:text-blue-400 font-semibold transition-colors relative group">
+                                Inicio
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#features"
+                                class="text-slate-200 hover:text-purple-400 font-semibold transition-colors relative group">
+                                Características
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 group-hover:w-full transition-all duration-300"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/dQw4w9WgXcQ?si=1DLTStpLlrPF8jZA"
+                                class="text-slate-200 hover:text-green-400 font-semibold transition-colors relative group">
+                                Descargas
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-400 group-hover:w-full transition-all duration-300"></span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- User Box -->
+                    <div class="flex items-center gap-3">
+                        <a href="login.html"
+                            class="text-slate-300 hover:text-white transition-colors text-sm font-medium">
+                            Iniciar Sesión
+                        </a>
+                        <span class="text-slate-600">|</span>
+                        <a href="register.html"
+                            class="text-slate-300 hover:text-white transition-colors text-sm font-medium">
+                            Registrarse
+                        </a>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full mb-6">
+                        <span class="text-blue-300 font-semibold text-sm">Version 2.0.0</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-slate-100 mb-6 leading-tight">
+                        Bienvenido a <span
+                            class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Nepix</span>
+                    </h1>
+                    <p class="text-xl text-slate-300 mb-8">
+                        Experimenta Minecraft como nunca antes con nuestro lanzador optimizado y rico en funciones.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://youtu.be/dQw4w9WgXcQ?si=1DLTStpLlrPF8jZA"
+                            class="btn-glossy bg-glossy-green text-white px-8 py-4 rounded-lg font-bold text-lg text-shadow flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6">
+                                <path fill-rule="evenodd"
+                                    d="M12 2.25a.75.75 0 01.75.75v11.69l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V3a.75.75 0 01.75-.75zm-9 13.5a.75.75 0 01.75.75v2.25a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5V16.5a.75.75 0 011.5 0v2.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V16.5a.75.75 0 01.75-.75z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Descargar Launcher
+                        </a>
+                        <a href="login.html"
+                            class="btn-glossy bg-glossy-gray text-slate-100 px-8 py-4 rounded-lg font-bold text-lg">
+                            Iniciar Sesión
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="aero-panel p-8 hero-section">
+                        <div
+                            class="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-white/10">
+                            <h2 class="text-4xl font-bold text-slate-100">Nepix Launcher</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="relative z-10 py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-slate-100 mb-4 text-center">Características</h2>
+            <p class="text-slate-300 text-center mb-12 text-lg">Todo lo que necesitas para una experiencia perfecta de
+                Minecraft</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="aero-panel p-6 hover:bg-slate-700/50 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 text-blue-400">
+                            <path fill-rule="evenodd"
+                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Descargas Ultra Rápidas</h3>
+                    <p class="text-slate-300">Sistema de descarga optimizado para obtener versiones en tiempo récord</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="aero-panel p-6 hover:bg-slate-700/50 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 text-purple-400">
+                            <path
+                                d="M11.644 1.59a.75.75 0 01.712 0l9.75 5.25a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.712 0l-9.75-5.25a.75.75 0 010-1.32l9.75-5.25z" />
+                            <path
+                                d="M3.265 10.602l7.668 4.129a2.25 2.25 0 002.134 0l7.668-4.13 1.37.739a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.71 0l-9.75-5.25a.75.75 0 010-1.32l1.37-.738z" />
+                            <path
+                                d="M10.933 19.231l-7.668-4.13-1.37.739a.75.75 0 000 1.32l9.75 5.25c.221.12.489.12.71 0l9.75-5.25a.75.75 0 000-1.32l-1.37-.738-7.668 4.13a2.25 2.25 0 01-2.134-.001z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Interfaz Moderna</h3>
+                    <p class="text-slate-300">Diseño intuitivo y atractivo para una experiencia de usuario superior</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="aero-panel p-6 hover:bg-slate-700/50 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 text-green-400">
+                            <path fill-rule="evenodd"
+                                d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Sistema de Autenticación</h3>
+                    <p class="text-slate-300">Autenticación robusta y segura para proteger tu cuenta</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="aero-panel p-6 hover:bg-slate-700/50 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 text-orange-400">
+                            <path
+                                d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0016.5 9h-1.875a1.875 1.875 0 01-1.875-1.875V5.25A3.75 3.75 0 009 1.5H5.625z" />
+                            <path
+                                d="M12.971 1.816A5.23 5.23 0 0114.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 013.434 1.279 9.768 9.768 0 00-6.963-6.963z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Gestión Completa</h3>
+                    <p class="text-slate-300">Administra todas tus versiones y modpacks desde un solo lugar</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="aero-panel p-6 hover:bg-slate-700/50 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 text-pink-400">
+                            <path fill-rule="evenodd"
+                                d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Sincronización de Skins</h3>
+                    <p class="text-slate-300">Sincroniza y personaliza tus skins personalizados fácilmente</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="aero-panel p-6 hover:bg-slate-700/50 transition-all cursor-pointer">
+                    <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 text-cyan-400">
+                            <path fill-rule="evenodd"
+                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2">Sin Descargas Redundantes</h3>
+                    <p class="text-slate-300">Sistema inteligente que evita descargas duplicadas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News and Community Section -->
+    <section class="relative z-10 py-16 px-4 bg-slate-900/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Latest News -->
+                <div class="aero-panel p-8">
+                    <h2 class="text-2xl font-bold text-slate-100 mb-4">Últimas Noticias</h2>
+                    <p class="text-slate-300 mb-6">
+                        Mantente actualizado con los últimos desarrollos de Nepix.
+                    </p>
+                    <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-center">
+                        <span class="text-slate-400">Espacio Publicitario / Noticias</span>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="aero-panel p-8">
+                    <h2 class="text-2xl font-bold text-slate-100 mb-4">Comunidad</h2>
+                    <p class="text-slate-300 mb-6">
+                        Únete a nuestra comunidad para discutir características y obtener soporte.
+                    </p>
+                    <div class="space-y-3">
+                        <a href="#"
+                            class="block bg-blue-500/10 hover:bg-blue-500/20 border border-blue-400/30 rounded-lg p-4 transition">
+                            <span class="text-blue-300 font-semibold">Discord</span>
+                        </a>
+                        <a href="#"
+                            class="block bg-purple-500/10 hover:bg-purple-500/20 border border-purple-400/30 rounded-lg p-4 transition">
+                            <span class="text-purple-300 font-semibold">Forum</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Updates -->
+                <div class="aero-panel p-8">
+                    <h2 class="text-2xl font-bold text-slate-100 mb-4">Actualizaciones</h2>
+                    <p class="text-slate-300 mb-6">
+                        Síguenos para actualizaciones en tiempo real.
+                    </p>
+                    <div
+                        class="bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 rounded-lg p-6">
+                        <p class="text-slate-100 font-bold mb-2">Version 2.0.0</p>
+                        <p class="text-slate-300 text-sm">
+                            Complete rebranding from Skylauncher to Nepix. New features and improvements across the
+                            entire system.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 px-4 border-t border-white/10">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-slate-400 text-sm">
+                Nota: Este proyecto fue desarrollado usando IA Generativa.
+            </p>
+            <p class="text-slate-500 text-xs mt-2">
+                © 2025 Nepix Launcher. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
