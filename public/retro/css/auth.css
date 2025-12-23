@@ -1,0 +1,146 @@
+/* Estilos de Autenticación (Login/Registro) */
+
+#logo {
+    background-image: url('../images/nepix_logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.form-card {
+    background: #333;
+    border: #666 solid 1px;
+    padding: 20px;
+    margin: 2em 0;
+    max-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+}
+
+.form-group label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #AAA;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    background: #222;
+    color: #E0D0D0;
+    border: 1px solid #555;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input.input-error {
+    border-color: #cc0000;
+    background: #2a1515;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #5f9f35;
+}
+
+/* Desactivar estilos de validación nativa del navegador */
+.form-group input:invalid {
+    box-shadow: none;
+}
+
+.form-group input:required {
+    box-shadow: none;
+}
+
+.btn-submit {
+    background: #5f9f35;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background: #71b147;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 1em;
+    display: none;
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+.message.error {
+    background-color: #fdd;
+    color: #a00;
+    display: block;
+    border-left: 4px solid #a00;
+}
+
+.message.success {
+    background-color: #dfd;
+    color: #0a0;
+    display: block;
+    border-left: 4px solid #0a0;
+}
+
+.form-footer {
+    margin-top: 1.5em;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Estilos extraídos de estilos en línea */
+.user-info {
+    display: none;
+}
+
+.auth-sidebar {
+    width: 300px;
+    margin-left: 40px;
+    float: left;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.sidebar-cube-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.ad-title {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 1em;
+}
+
+.ad-container {
+    background: #222;
+    border: 2px solid #444;
+    padding: 20px;
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-text {
+    color: #777;
+    font-size: 14px;
+}
+
+.why-nepix {
+    margin-top: 2em;
+}

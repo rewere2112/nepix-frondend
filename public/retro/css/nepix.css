@@ -1,0 +1,61 @@
+/* Sobrescrituras personalizadas para Nepix */
+#logo {
+    background-image: url('../images/nepix_logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Estilos extraídos de estilos en línea */
+.video-placeholder-container {
+    border: #121212 solid 5px;
+    margin-bottom: 20px;
+}
+
+.video-placeholder {
+    background: #222;
+    height: auto;
+    aspect-ratio: 16/9;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+}
+
+.play-minecraft-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 2em;
+    line-height: 1.4;
+}
+
+.download-launcher-btn-container {
+    margin-top: 0.5em;
+}
+
+.download-launcher-btn {
+    display: inline-block;
+    background: #5f9f35;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.already-have-account {
+    font-size: 13px;
+    margin-top: 2em;
+}
+
+.clear-both {
+    clear: both;
+    height: 0;
+}
+
+.ad-box {
+    background: #222;
+    padding: 10px;
+    text-align: center;
+}

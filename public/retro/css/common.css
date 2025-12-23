@@ -1,0 +1,411 @@
+/**
+ * common.css - Estilo Nepix Old Minecraft
+ * Inspirado en minecraft.net 2009-2010
+ */
+
+/* Importar fuente pixelada tipo Minecraft */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #6b6b6b url('../images/stone.jpg');
+    background-size: 128px 128px;
+    min-height: 100vh;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Overlay oscuro del 45% sobre el fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Usar textura de tierra para páginas de login y registro */
+body.dirt-bg {
+    background: #6b6b6b url('../images/dirt.jpg');
+    background-size: 128px 128px;
+}
+
+/* ============ Header ============ */
+#header {
+    background: #2c2c2c;
+    height: 60px;
+    width: 100%;
+    border-bottom: 2px solid #000;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+#header h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #000;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+#header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#header h1 a:hover {
+    color: #88ccff;
+}
+
+
+/* Wrapper para contenido debajo del header */
+#content-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+/* ============ Barra Lateral Derecha (Anuncios/Imágenes) ============ */
+#right-sidebar {
+    width: 300px;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#right-sidebar h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #000;
+    margin-bottom: 20px;
+}
+
+.ad-box {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #666;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+}
+
+.ad-box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ============ Navegación de Barra Lateral ============ */
+#sidebar {
+    width: 200px;
+    background: rgba(0, 0, 0, 0.7);
+    border-right: 2px solid #333;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+#sidebar h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #000;
+    line-height: 1.5;
+}
+
+#sidebar nav {
+    margin-top: 20px;
+}
+
+#sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar nav li {
+    margin-bottom: 10px;
+}
+
+#sidebar nav a {
+    color: #88ccff;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 5px 0;
+}
+
+#sidebar nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ============ Contenido Principal ============ */
+#main-content {
+    flex: 1;
+    padding: 20px;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============ Cajas de Contenido ============ */
+.content-box {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #666;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.content-box h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 0px #000;
+    line-height: 1.6;
+}
+
+.content-box h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
+    color: #88ccff;
+    margin: 20px 0 10px 0;
+    text-shadow: 2px 2px 0px #000;
+    line-height: 1.6;
+}
+
+.content-box p {
+    color: #ffffff;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.content-box ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.content-box li {
+    color: #ffffff;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.content-box a {
+    color: #88ccff;
+    text-decoration: none;
+}
+
+.content-box a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ============ Botones (Estilo Old Minecraft) ============ */
+.btn {
+    display: inline-block;
+    background: #4a4a4a;
+    border: 2px solid #888;
+    border-top-color: #aaa;
+    border-left-color: #aaa;
+    border-right-color: #333;
+    border-bottom-color: #333;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: 2px 2px 0px #000;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+    background: #5a5a5a;
+}
+
+.btn:active {
+    background: #3a3a3a;
+    box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary {
+    background: #3a7a3a;
+    border-top-color: #5a9a5a;
+    border-left-color: #5a9a5a;
+}
+
+.btn-primary:hover {
+    background: #4a8a4a;
+}
+
+/* ============ Elementos de Formulario ============ */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    background: #2a2a2a;
+    border: 2px solid #666;
+    border-bottom-color: #888;
+    border-right-color: #888;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #88ccff;
+}
+
+/* ============ Contenedor para Páginas de Formulario ============ */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-card {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #666;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.form-card h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #000;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.btn-submit {
+    width: 100%;
+    background: #3a7a3a;
+    border: 2px solid #888;
+    border-top-color: #5a9a5a;
+    border-left-color: #5a9a5a;
+    border-right-color: #2a5a2a;
+    border-bottom-color: #2a5a2a;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 14px;
+    text-shadow: 2px 2px 0px #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background: #4a8a4a;
+}
+
+/* ============ Mensajes ============ */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid;
+    display: none;
+}
+
+.message.error {
+    background: rgba(139, 0, 0, 0.8);
+    border-color: #ff0000;
+    color: #ffffff;
+}
+
+.message.success {
+    background: rgba(0, 100, 0, 0.8);
+    border-color: #00ff00;
+    color: #ffffff;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #aaa;
+    font-size: 13px;
+}
+
+.form-footer a {
+    color: #88ccff;
+}
+
+/* ============ Pie de Página ============ */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 2px solid #666;
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    margin-top: auto;
+}
+
+/* ============ Responsivo ============ */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    #sidebar {
+        width: 100%;
+        min-height: auto;
+        border-right: none;
+        border-bottom: 2px solid #333;
+    }
+
+    #main-content {
+        padding: 15px;
+    }
+}
